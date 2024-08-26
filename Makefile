@@ -6,18 +6,18 @@ CFLAGS = $(HEADERS_INCLUDE) -lm -D _DEBUG -ggdb3 -std=c++17 -O0 -Wall -Wextra -W
 
 all: a.out # double_procedures.o square_solver.o square_unit_test.o mode_parser.o main.o
 
-a.out: main.o my_str_func.o
-	@$(CC) $(CFLAGS) build/my_str_func.o build/main.o
+a.out: main.o my_str_funcs.o
+	@$(CC) $(CFLAGS) build/my_str_funcs.o build/main.o
 
 
 main.o: src/main.cpp
 	@$(CC) $(CFLAGS) -c src/main.cpp -o build/main.o
 
-my_str_func.o: src/my_str_func.cpp
-	@$(CC) $(CFLAGS) -c src/my_str_func.cpp -o build/my_str_func.o
+my_str_funcs.o: src/my_str_funcs.cpp
+	@$(CC) $(CFLAGS) -c src/my_str_funcs.cpp -o build/my_str_funcs.o
 
 run:
-	./a.out --help -v --test -s
+	./a.out
 
 clean:
 	rm a.out
